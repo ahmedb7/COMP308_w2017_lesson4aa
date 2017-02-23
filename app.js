@@ -5,6 +5,18 @@ let logger = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
 
+//adding mongoose module
+let mongoose = require("mongoose");
+//connect to mongodb
+mongoose.connect("mongodb://localhost/games", (err)=>{
+if(err){
+  console.log("Error connecting to the database")
+}
+else{
+  console.log("conneted to mongodb")
+}
+});
+
 let index = require('./routes/index');
 
 let app = express();
